@@ -5,8 +5,9 @@
 
 #pragma once
 
+#ifdef WIN32
 #include "targetver.h"
-
+#endif
 #include <stdio.h>
 #include <tchar.h>
 
