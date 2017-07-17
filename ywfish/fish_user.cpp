@@ -39,7 +39,7 @@ void fishUser::onMessage(const mayday::net::TcpConnectionPtr& conn, mayday::net:
 		if (readableBbyte < CLIENT_PACKET_HEAD_LEN)
 		{
 			//不够一个包头
-			MDLog("fishUser::onMessage 1");
+			MDLog("fishUser::onMessage 1, %d", readableBbyte);
 			return;
 		}
 
@@ -48,7 +48,7 @@ void fishUser::onMessage(const mayday::net::TcpConnectionPtr& conn, mayday::net:
 		int totalLen = static_cast<int>(packetSize) + CLIENT_PACKET_HEAD_LEN;
 		if (readableBbyte < totalLen)
 		{
-			MDLog("fishUser::onMessage %d %d", readableBbyte, totalLen);
+			MDLog("fishUser::onMessage 2, %d %d", readableBbyte, totalLen);
 			return;
 		}
 		onPackage(bufOffset + CLIENT_PACKET_HEAD_LEN, packetSize);
