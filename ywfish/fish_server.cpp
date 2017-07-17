@@ -25,7 +25,7 @@ fishServer::~fishServer()
 
 void fishServer::loop()
 {
-
+	loop_->loop();
 }
 
 void fishServer::startServer(const mayday::net::InetAddress &listenAddr)
@@ -60,6 +60,7 @@ void fishServer::onClientConnection(const mayday::net::TcpConnectionPtr& conn)
 		fishUser *user = (fishUser *)conn->getContext();
 		user->onDisconnect();
 		conn->setContext(NULL);
+		delete user;
 	}
 }
 

@@ -10,7 +10,7 @@ fishUser::fishUser(const TcpConnectionPtr &conn)
 : connection_(conn)
 , isClose_(false)
 {
-
+	MDLog("new fishUser");
 }
 
 fishUser::~fishUser()
@@ -20,6 +20,7 @@ fishUser::~fishUser()
 
 void fishUser::onDisconnect()
 {
+	MDLog("fishUser::onDisconnect");
 	if (isClose_)
 	{
 		return;
@@ -58,6 +59,7 @@ void fishUser::onPackage(const char *buff, int32 buffLen)
 	fish::packet root;
 	if (!root.ParseFromArray(buff, buffLen))
 	{
+		MDLog("protobuff ParseFromArray failed close");
 		connection_->forceClose();
 		return;
 	}
@@ -94,4 +96,60 @@ void fishUser::onPackage(const char *buff, int32 buffLen)
 			break;
 	}
 
+}
+
+void fishUser::handlePingReq(const fish::ping_req &req)
+{
+
+}
+
+void fishUser::handleLoginReq(const fish::login_req &req)
+{
+	const std::string &acc = req.acc();
+	const std::string &pwd = req.pwd();
+	MDLog("login_req %s, %s", acc.c_str(), pwd.c_str());
+
+	{
+		fish::login_rsp rsp;
+		rsp.set_state(0);
+		rsp.set_game_id("test_fish");
+		rsp.add_room_type(1);
+
+
+		sendPacket(&rsp, fish::CMD_LOGIN_RSP);
+	}
+
+}
+
+void fishUser::handleEnterRoomReq(const fish::enter_room_req &req)
+{
+
+}
+
+void fishUser::handleFireReq(const fish::fire_req &req)
+{
+
+}
+
+#define DEFAULT_BUFF_SIZE   (1*1024*1024)
+void fishUser::sendPacket(const google::protobuf::Message* msg, int cmdId)
+{
+	if (isClose_)
+	{
+		return;
+	}
+	static  char msgBuf[DEFAULT_BUFF_SIZE];
+	int needSize = msg->ByteSize();
+	msg->SerializeToArray(msgBuf, DEFAULT_BUFF_SIZE);
+
+	fish::packet root;
+	root.set_cmd(cmdId);
+	root.set_body(msgBuf, needSize);
+
+	int rootSize = root.ByteSize();
+	root.SerializeToArray(msgBuf + 4, DEFAULT_BUFF_SIZE);
+	*((unsigned int *)msgBuf) = sockets::hostToNetwork32(rootSize);
+
+
+	connection_->send(msgBuf, rootSize + 4);
 }
