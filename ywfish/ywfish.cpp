@@ -3,7 +3,7 @@
 
 #include "stdafx.h"
 #include "fish_server.h"
-#include "mayday\net\InetAddress.h"
+#include "mayday/net/InetAddress.h"
 int main(int argc, char* argv[])
 {
 
