@@ -6,7 +6,7 @@ ipch/
 *.v12.suo
 Debug/
 Release/
-
+fishServer
 # Compiled Object files
 *.slo
 *.lo
