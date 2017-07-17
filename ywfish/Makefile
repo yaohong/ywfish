@@ -8,6 +8,9 @@ MAYDAY_DIR:=./mayday/
 MAYDAY_BASE_DIR:=./mayday/base/
 MAYDAY_NET_DIR:=./mayday/net/
 
+mkdir -p $(MAYDAY_BASE_DIR)
+mkdir -p $(MAYDAY_NET_DIR)
+
 FISHSERVER_OBJDIR:=../Obj/SRC
 MAYDAY_OBJDIR:=../Obj/mayday
 MAYDAY_BASE_OBJDIR:=../Obj/mayday/base
