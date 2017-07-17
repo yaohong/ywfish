@@ -17,7 +17,7 @@ namespace mayday
     {
         ZB_LOG_FMT();
         Timestamp t = Timestamp::now();
-        std::string st = t.toFormattedString();
+		std::string st = t.toLocalFormattedString();
         fprintf( stderr, "[DEBUG] [%s]: %s\n", st.c_str(), szBuf );
         fflush( stderr );
     }
@@ -26,7 +26,7 @@ namespace mayday
     {
         ZB_LOG_FMT();
         Timestamp t = Timestamp::now();
-        std::string st = t.toFormattedString();
+		std::string st = t.toLocalFormattedString();
         fprintf( stderr, "[WARNING] [%s]: %s\n", st.c_str(), szBuf );
         fflush( stderr );
     }
@@ -35,7 +35,7 @@ namespace mayday
     {
         ZB_LOG_FMT();
         Timestamp t = Timestamp::now();
-        std::string st = t.toFormattedString();
+		std::string st = t.toLocalFormattedString();
         fprintf( stderr, "[ERROR] [%s]: %s\n", st.c_str(), szBuf );
         fflush( stderr );
     }
@@ -44,7 +44,7 @@ namespace mayday
     {
         ZB_LOG_FMT();
         Timestamp t = Timestamp::now();
-        std::string st = t.toFormattedString();
+		std::string st = t.toLocalFormattedString();
         fprintf( stderr, "[INFO] [%s]: %s\n", st.c_str(), szBuf );
         fflush( stderr );
     }
@@ -53,10 +53,17 @@ namespace mayday
     {
         ZB_LOG_FMT();
         Timestamp t = Timestamp::now();
-        std::string st = t.toFormattedString();
+		std::string st = t.toLocalFormattedString();
         fprintf( stderr, "[FATAL] [%s]: %s\n", st.c_str(), szBuf );
         fflush( stderr );
         abort();
     }
+
+	void LogRaw(const char *fmt, ...)
+	{
+		ZB_LOG_FMT();
+		fprintf(stderr, "%s\n", szBuf);
+		fflush(stderr);
+	}
 }
 

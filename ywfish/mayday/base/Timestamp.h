@@ -27,7 +27,7 @@ namespace mayday
         //格式化时间
         std::string toString() const;
         std::string toFormattedString( bool showMicroseconds = true ) const;
-
+		std::string toLocalFormattedString( bool showMicroseconds = true ) const;
         bool valid() const { return microSecondsSinceEpoch_ > 0; }
 
         //当前微秒

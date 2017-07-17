@@ -69,6 +69,39 @@ namespace mayday
         }
         return buf;
     }
+
+	std::string Timestamp::toLocalFormattedString(bool showMicroseconds) const
+	{
+		char buf[64] = { 0 };
+		time_t seconds = static_cast<time_t>(microSecondsSinceEpoch_ / kMicroSecondsPerSecond);
+#ifndef WIN32 
+		struct tm tm_time;
+		localtime_r(&seconds, &tm_time);
+#else 
+		struct tm *tmp_tm_time;
+		tmp_tm_time = localtime(&seconds);
+		struct tm tm_time = *tmp_tm_time;
+#endif
+
+		if (showMicroseconds)
+		{
+			int microseconds = static_cast<int>(microSecondsSinceEpoch_ % kMicroSecondsPerSecond);
+			STRING_FMT(buf, sizeof(buf), "%4d-%02d-%02d %02d:%02d:%02d.%06d",
+				tm_time.tm_year + 1900, tm_time.tm_mon + 1, tm_time.tm_mday,
+				tm_time.tm_hour, tm_time.tm_min, tm_time.tm_sec,
+				microseconds);
+		}
+		else
+		{
+			STRING_FMT(buf, sizeof(buf), "%4d-%02d-%02d %02d:%02d:%02d",
+				tm_time.tm_year + 1900, tm_time.tm_mon + 1, tm_time.tm_mday,
+				tm_time.tm_hour, tm_time.tm_min, tm_time.tm_sec);
+		}
+		return buf;
+	}
+
+
+
     static int64 testTime = 1;
     Timestamp Timestamp::now()
     {

@@ -10,6 +10,7 @@ namespace mayday
     void LogError( const char *fmt, ... );
     void LogInfo( const char *fmt, ... );
     void LogFatal( const char *fmt, ... );
+	void LogRaw(const char *fmt, ...);
 }
 
 #define MDLog mayday::LogDebug
@@ -18,5 +19,5 @@ namespace mayday
 #define MDInfo mayday::LogInfo
 #define MDFatal mayday::LogFatal
 #define MDAssert assert
-
+#define MDRaw mayday::LogRaw
 #endif
