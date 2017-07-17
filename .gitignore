@@ -18,9 +18,9 @@ Release/
 *.pch
 
 # Compiled Dynamic libraries
-*.so
+#*.so
 *.dylib
-*.dll
+#*.dll
 
 # Fortran module files
 *.mod
@@ -29,8 +29,8 @@ Release/
 # Compiled Static libraries
 *.lai
 *.la
-*.a
-*.lib
+#*.a
+#*.lib
 
 # Executables
 *.exe
