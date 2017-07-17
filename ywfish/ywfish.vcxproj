@@ -47,10 +47,10 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
-      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;_LIB;_SCL_SECURE_NO_WARNINGS;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
     </ClCompile>
     <Link>
@@ -61,11 +61,11 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
-      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;_LIB;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
     </ClCompile>
     <Link>
@@ -79,15 +79,67 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="mayday\base\Atomic.h" />
+    <ClInclude Include="mayday\base\CurrentThread.h" />
+    <ClInclude Include="mayday\base\DataDefine.h" />
+    <ClInclude Include="mayday\base\DefaultLog.h" />
+    <ClInclude Include="mayday\base\Define.h" />
+    <ClInclude Include="mayday\base\MacroDefine.h" />
+    <ClInclude Include="mayday\base\Mutex.h" />
+    <ClInclude Include="mayday\base\Semaphore.h" />
+    <ClInclude Include="mayday\base\SysDefine.h" />
+    <ClInclude Include="mayday\base\Thread.h" />
+    <ClInclude Include="mayday\base\TimerManager.h" />
+    <ClInclude Include="mayday\base\Timestamp.h" />
+    <ClInclude Include="mayday\net\Acceptor.h" />
+    <ClInclude Include="mayday\net\Buffer.h" />
+    <ClInclude Include="mayday\net\Callbacks.h" />
+    <ClInclude Include="mayday\net\Channel.h" />
+    <ClInclude Include="mayday\net\Connector.h" />
+    <ClInclude Include="mayday\net\Endian.h" />
+    <ClInclude Include="mayday\net\EPollPoller.h" />
+    <ClInclude Include="mayday\net\InetAddress.h" />
+    <ClInclude Include="mayday\net\NetworkLoop.h" />
+    <ClInclude Include="mayday\net\NetworkLoopThread.h" />
+    <ClInclude Include="mayday\net\Poller.h" />
+    <ClInclude Include="mayday\net\PollPoller.h" />
+    <ClInclude Include="mayday\net\Socket.h" />
+    <ClInclude Include="mayday\net\SocketOps.h" />
+    <ClInclude Include="mayday\net\TcpClient.h" />
+    <ClInclude Include="mayday\net\TcpConnection.h" />
+    <ClInclude Include="mayday\net\TcpServer.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="mayday\base\DefaultLog.cpp" />
+    <ClCompile Include="mayday\base\Thread.cpp" />
+    <ClCompile Include="mayday\base\TimerManager.cpp" />
+    <ClCompile Include="mayday\base\Timestamp.cpp" />
+    <ClCompile Include="mayday\net\Acceptor.cpp" />
+    <ClCompile Include="mayday\net\Buffer.cpp" />
+    <ClCompile Include="mayday\net\Channel.cpp" />
+    <ClCompile Include="mayday\net\Connector.cpp" />
+    <ClCompile Include="mayday\net\DefaultPoller.cpp" />
+    <ClCompile Include="mayday\net\EPollPoller.cpp" />
+    <ClCompile Include="mayday\net\InetAddress.cpp" />
+    <ClCompile Include="mayday\net\NetworkLoop.cpp" />
+    <ClCompile Include="mayday\net\NetworkLoopThread.cpp" />
+    <ClCompile Include="mayday\net\Poller.cpp" />
+    <ClCompile Include="mayday\net\PollPoller.cpp" />
+    <ClCompile Include="mayday\net\Socket.cpp" />
+    <ClCompile Include="mayday\net\SocketOps.cpp" />
+    <ClCompile Include="mayday\net\TcpClient.cpp" />
+    <ClCompile Include="mayday\net\TcpConnection.cpp" />
+    <ClCompile Include="mayday\net\TcpServer.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="ywfish.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Makefile" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -13,6 +13,15 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="源文件\mayday">
+      <UniqueIdentifier>{ce67fc2e-e602-4347-b3e4-88874124cd62}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\mayday\base">
+      <UniqueIdentifier>{f6281686-1743-487b-b383-019cb91e660e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\mayday\net">
+      <UniqueIdentifier>{95fe2a07-94c8-4cc9-8cdc-a47b87fb5c24}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -24,6 +33,93 @@
     <ClInclude Include="targetver.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="mayday\base\Atomic.h">
+      <Filter>源文件\mayday\base</Filter>
+    </ClInclude>
+    <ClInclude Include="mayday\base\CurrentThread.h">
+      <Filter>源文件\mayday\base</Filter>
+    </ClInclude>
+    <ClInclude Include="mayday\base\DataDefine.h">
+      <Filter>源文件\mayday\base</Filter>
+    </ClInclude>
+    <ClInclude Include="mayday\base\DefaultLog.h">
+      <Filter>源文件\mayday\base</Filter>
+    </ClInclude>
+    <ClInclude Include="mayday\base\Define.h">
+      <Filter>源文件\mayday\base</Filter>
+    </ClInclude>
+    <ClInclude Include="mayday\base\MacroDefine.h">
+      <Filter>源文件\mayday\base</Filter>
+    </ClInclude>
+    <ClInclude Include="mayday\base\Mutex.h">
+      <Filter>源文件\mayday\base</Filter>
+    </ClInclude>
+    <ClInclude Include="mayday\base\Semaphore.h">
+      <Filter>源文件\mayday\base</Filter>
+    </ClInclude>
+    <ClInclude Include="mayday\base\SysDefine.h">
+      <Filter>源文件\mayday\base</Filter>
+    </ClInclude>
+    <ClInclude Include="mayday\base\Thread.h">
+      <Filter>源文件\mayday\base</Filter>
+    </ClInclude>
+    <ClInclude Include="mayday\base\TimerManager.h">
+      <Filter>源文件\mayday\base</Filter>
+    </ClInclude>
+    <ClInclude Include="mayday\base\Timestamp.h">
+      <Filter>源文件\mayday\base</Filter>
+    </ClInclude>
+    <ClInclude Include="mayday\net\Acceptor.h">
+      <Filter>源文件\mayday\net</Filter>
+    </ClInclude>
+    <ClInclude Include="mayday\net\Buffer.h">
+      <Filter>源文件\mayday\net</Filter>
+    </ClInclude>
+    <ClInclude Include="mayday\net\Callbacks.h">
+      <Filter>源文件\mayday\net</Filter>
+    </ClInclude>
+    <ClInclude Include="mayday\net\Channel.h">
+      <Filter>源文件\mayday\net</Filter>
+    </ClInclude>
+    <ClInclude Include="mayday\net\Connector.h">
+      <Filter>源文件\mayday\net</Filter>
+    </ClInclude>
+    <ClInclude Include="mayday\net\Endian.h">
+      <Filter>源文件\mayday\net</Filter>
+    </ClInclude>
+    <ClInclude Include="mayday\net\EPollPoller.h">
+      <Filter>源文件\mayday\net</Filter>
+    </ClInclude>
+    <ClInclude Include="mayday\net\InetAddress.h">
+      <Filter>源文件\mayday\net</Filter>
+    </ClInclude>
+    <ClInclude Include="mayday\net\NetworkLoop.h">
+      <Filter>源文件\mayday\net</Filter>
+    </ClInclude>
+    <ClInclude Include="mayday\net\NetworkLoopThread.h">
+      <Filter>源文件\mayday\net</Filter>
+    </ClInclude>
+    <ClInclude Include="mayday\net\Poller.h">
+      <Filter>源文件\mayday\net</Filter>
+    </ClInclude>
+    <ClInclude Include="mayday\net\PollPoller.h">
+      <Filter>源文件\mayday\net</Filter>
+    </ClInclude>
+    <ClInclude Include="mayday\net\Socket.h">
+      <Filter>源文件\mayday\net</Filter>
+    </ClInclude>
+    <ClInclude Include="mayday\net\SocketOps.h">
+      <Filter>源文件\mayday\net</Filter>
+    </ClInclude>
+    <ClInclude Include="mayday\net\TcpClient.h">
+      <Filter>源文件\mayday\net</Filter>
+    </ClInclude>
+    <ClInclude Include="mayday\net\TcpConnection.h">
+      <Filter>源文件\mayday\net</Filter>
+    </ClInclude>
+    <ClInclude Include="mayday\net\TcpServer.h">
+      <Filter>源文件\mayday\net</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -32,5 +128,68 @@
     <ClCompile Include="ywfish.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="mayday\base\DefaultLog.cpp">
+      <Filter>源文件\mayday\base</Filter>
+    </ClCompile>
+    <ClCompile Include="mayday\base\Thread.cpp">
+      <Filter>源文件\mayday\base</Filter>
+    </ClCompile>
+    <ClCompile Include="mayday\base\TimerManager.cpp">
+      <Filter>源文件\mayday\base</Filter>
+    </ClCompile>
+    <ClCompile Include="mayday\base\Timestamp.cpp">
+      <Filter>源文件\mayday\base</Filter>
+    </ClCompile>
+    <ClCompile Include="mayday\net\Acceptor.cpp">
+      <Filter>源文件\mayday\net</Filter>
+    </ClCompile>
+    <ClCompile Include="mayday\net\Buffer.cpp">
+      <Filter>源文件\mayday\net</Filter>
+    </ClCompile>
+    <ClCompile Include="mayday\net\Channel.cpp">
+      <Filter>源文件\mayday\net</Filter>
+    </ClCompile>
+    <ClCompile Include="mayday\net\Connector.cpp">
+      <Filter>源文件\mayday\net</Filter>
+    </ClCompile>
+    <ClCompile Include="mayday\net\DefaultPoller.cpp">
+      <Filter>源文件\mayday\net</Filter>
+    </ClCompile>
+    <ClCompile Include="mayday\net\EPollPoller.cpp">
+      <Filter>源文件\mayday\net</Filter>
+    </ClCompile>
+    <ClCompile Include="mayday\net\InetAddress.cpp">
+      <Filter>源文件\mayday\net</Filter>
+    </ClCompile>
+    <ClCompile Include="mayday\net\NetworkLoop.cpp">
+      <Filter>源文件\mayday\net</Filter>
+    </ClCompile>
+    <ClCompile Include="mayday\net\NetworkLoopThread.cpp">
+      <Filter>源文件\mayday\net</Filter>
+    </ClCompile>
+    <ClCompile Include="mayday\net\Poller.cpp">
+      <Filter>源文件\mayday\net</Filter>
+    </ClCompile>
+    <ClCompile Include="mayday\net\PollPoller.cpp">
+      <Filter>源文件\mayday\net</Filter>
+    </ClCompile>
+    <ClCompile Include="mayday\net\Socket.cpp">
+      <Filter>源文件\mayday\net</Filter>
+    </ClCompile>
+    <ClCompile Include="mayday\net\SocketOps.cpp">
+      <Filter>源文件\mayday\net</Filter>
+    </ClCompile>
+    <ClCompile Include="mayday\net\TcpClient.cpp">
+      <Filter>源文件\mayday\net</Filter>
+    </ClCompile>
+    <ClCompile Include="mayday\net\TcpConnection.cpp">
+      <Filter>源文件\mayday\net</Filter>
+    </ClCompile>
+    <ClCompile Include="mayday\net\TcpServer.cpp">
+      <Filter>源文件\mayday\net</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Makefile" />
   </ItemGroup>
 </Project>
