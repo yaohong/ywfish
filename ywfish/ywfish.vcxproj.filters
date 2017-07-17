@@ -120,6 +120,12 @@
     <ClInclude Include="mayday\net\TcpServer.h">
       <Filter>源文件\mayday\net</Filter>
     </ClInclude>
+    <ClInclude Include="fish_server.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
+    <ClInclude Include="fish_user.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -187,6 +193,15 @@
     </ClCompile>
     <ClCompile Include="mayday\net\TcpServer.cpp">
       <Filter>源文件\mayday\net</Filter>
+    </ClCompile>
+    <ClCompile Include="fish_server.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="fish_user.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="fish.pb.cc">
+      <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

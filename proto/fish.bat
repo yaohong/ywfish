@@ -5,7 +5,7 @@ set "errorlevel="
 protoc --cpp_out=./ fish.proto > nul
 IF %ERRORLEVEL% NEQ 0 goto ErrorLabel
 
-set src=..\ywfish\\
+set src=..\ywfish\
 
 if exist %src%fish.pb.h (
   del %src%fish.pb.h /F /Q > nul

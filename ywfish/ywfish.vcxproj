@@ -85,6 +85,8 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="fish_server.h" />
+    <ClInclude Include="fish_user.h" />
     <ClInclude Include="mayday\base\Atomic.h" />
     <ClInclude Include="mayday\base\CurrentThread.h" />
     <ClInclude Include="mayday\base\DataDefine.h" />
@@ -118,6 +120,9 @@
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="fish.pb.cc" />
+    <ClCompile Include="fish_server.cpp" />
+    <ClCompile Include="fish_user.cpp" />
     <ClCompile Include="mayday\base\DefaultLog.cpp" />
     <ClCompile Include="mayday\base\Thread.cpp" />
     <ClCompile Include="mayday\base\TimerManager.cpp" />
