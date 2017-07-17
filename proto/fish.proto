@@ -1,0 +1,95 @@
+// Client <-> WorldServer
+
+package fish;
+
+// pack
+message packet {
+    required int32 cmd = 1; // 协议ID
+    required bytes body = 2; // 包体
+}
+
+enum cmd {
+	CMD_PING_REQ = 100;			//ping
+	CMD_PING_RSP = 101;			//rsp
+    CMD_LOGIN_REQ = 1001; // 登录请求 (login_req)
+    CMD_LOGIN_RSP = 1002; // 登录回复 (login_rsp)
+	
+	
+	CMD_ENTER_ROOM_REQ = 1003;		//进入房间 enter_room_req
+	CMD_ENTER_ROOM_RSP = 1004;		//进入房间的返回 enter_room_rsp
+	CMD_ENTER_ROOM_NOTIFY = 1005;	//有人进入房间enter_room_notify
+	
+	CMD_FIRE_REQ = 1006;			//fire_req 开炮
+	CMD_FIRE_RSP = 1007;			//开炮的返回
+	CMD_FIRE_NOTIFY = 1008;			//收到有人开炮的通知
+	
+	CMD_FISH_REFRESH_NOTIFY = 1009;		//刷新鱼了
+	
+
+}
+
+message ping_req {
+	optional int32 id = 1;
+}
+
+message ping_rsp {
+	optional int32 id = 1;
+}
+
+message login_req {
+    required string acc = 1; //
+	required string pwd = 2; //
+}
+
+message login_rsp {
+	required int32 state = 1;
+	optional string game_id = 2;
+	repeated int32 room_type = 3;			//登录成功返回房间类型
+}
+
+
+message enter_room_req {					//进入指定类型的房间
+	required int32 room_type = 1;
+}
+
+message seat {
+	required int32 number = 1;				//座位编号
+	required string game_id = 2;			//座位上的玩家ID 为""表示没有玩家
+}
+
+message enter_room_rsp {
+	required int32 state = 1;
+	repeated seat room_users = 2;			//其他位置的玩家数据
+}
+
+message enter_room_notify {
+	required int32 number = 1;
+	required string game_id = 2;
+}
+
+
+message fire_req {
+	required int32 angle = 1;				//射击角度
+}
+
+message fire_rsp {							
+	required int32 state = 1;			
+}
+
+message fire_notify {						//收到有人射击
+	required int32 number = 1;				//座位号
+	required int32 angle = 2;				//射击角度
+}
+
+
+message fish_refresh_notify {				//鱼刷新了
+	required int32 fish_id = 1;
+	required int32 line_id = 2;
+}
+
+
+
+
+
+
+
