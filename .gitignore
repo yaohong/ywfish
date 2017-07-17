@@ -4,6 +4,8 @@ ipch/
 *.opensdf
 *.sdf
 *.v12.suo
+Debug/
+Release/
 
 # Compiled Object files
 *.slo
